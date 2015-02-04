@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h1>Django Basics</h1>
+					<h3>The web framework for perfectionists with deadlines.</h3>
+					<p>Más rápido de lo que tu Servlet carga</p>
+					<p>
+						<small>
+						By <br />
+						<a href="#">Hugo Mora</a> ~ <a href="http://twitter.com/Hugo_Capitan">@Hugo_Capitan</a> <br />
+						<a href="#">Mauricio Mejia</a> ~ <a href="http://twitter.com/Hugo_Capitan">@MauricioDinki</a>
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Why / What is Django?</h2>
+					<p>
+						Licencia BSD / Python / OpenSource / MVC / RAD <br />
+						Framework / Multiplatform
+					</p>
+					<p>	¿Quieres más? </p>
+					<q> &ldquo;Django makes it easier to build better Web apps more quickly and with less code.&rdquo;</q>
+				</section>
+
+				<section>
+					<section>
+						<h2>Instalación</h2>
+						<img src="./assets/activepython.png">
+						<p><a href="http://www.activestate.com/activepython">ActivePython</a></p>
+					</section>
+
+					<section>
+					<h2>Algunas herramientas extra</h2>
+					<pre><code data-trim contenteditable>
+$ sudo apt-get install python-setuptools 
+$ sudo easy_install pip
+$ sudo easy_install virtualenv
+					</code></pre>
+					</section>
+					<section>
+						<img src="./assets/djangoinst.png">
+						<img src="./assets/dealprincess.gif">
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Comenzando nuestro proyecto</h2>
+						<ol>
+							<li>Carpeta raiz</li>
+							<li>Virtualenv</li>
+							<li>Crear proyecto</li>
+							<li>Crear Modulos</li>
+							<li>Hacer Magía</li>
+						</ol>
+					</section>
+					<section>
+						<pre><code data-trim contenteditable>
+$ mkdir ChairoSAES
+ChairoSAES$ cd ChairoSAES
+ChairoSAES$ virtualenv venv
+ChairoSAES(venv)$ pip install django
+					</code></pre>
+					<img src="./assets/what.jpg">
+					</section>
+					<section>
+						<pre><code data-trim contenteditable>
+ChairoSAES(venv)$ django-admin startproject chairosaes
+					</code></pre>
+					<img src="./assets/djangomagic.png">
+					</section>
+				</section>
+				
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', 
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
