@@ -4,10 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
-
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<title>Django Basics</title>
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -104,10 +101,148 @@ ChairoSAES(venv)$ pip install django
 						<pre><code data-trim contenteditable>
 ChairoSAES(venv)$ django-admin startproject chairosaes
 					</code></pre>
-					<img src="./assets/djangomagic.png">
+					<img src="./assets/watwatwat.jpg">
+					</section>
+					<section>
+						<pre><code data-trim contenteditable>
+ChairoSAES(venv)$ python manage.py runserver
+					</code></pre>
+					<img src="./assets/worked.png">
+					</section>
+					<section>
+						<h1>Funciona Dios mio!!!</h1>
+						<img src="./assets/djangomagic.png">
 					</section>
 				</section>
-				
+
+				<section>
+					<h2>Time for real orgasms</h2>
+					<img src="./assets/mybody.jpg">
+				</section>
+
+				<section>
+					<section>
+						<h3>Creando un par de modulos</h3>
+						<pre><code data-trim contenteditable>
+ChairoSAES(venv)$ django-admin startapp Chairos
+ChairoSAES(venv)$ django-admin startapp Asambleas
+						</code></pre>
+						<img src="./assets/esquema.jpg">
+					</section>
+					<section>
+						<p>Chairos/models.py</p>
+						<pre><code data-trim contenteditable>
+from django.db import models
+
+class Chairo(models.Model):
+	nombre = models.CharField(max_length=255)
+	desfasado = models.BooleanField(default=True)
+	cabello = models.BooleanField(default=True)
+
+	def __str__(self):
+		return self.nombre
+						</code></pre>
+						<p>Asambleas/models.py</p>
+						<pre><code data-trim contenteditable>
+from django.db import models
+from Chairos.models import Chairo
+
+
+class Asamblea(models.Model):
+	tema = models.CharField(max_length=255)
+	duracionHoras = models.PositiveIntegerField()
+	asistentes = models.ManyToManyField(Chairo)
+
+	def __str__(self):
+		return self.tema
+						</code></pre>
+					</section>
+					<section>
+						<p>Settings.py</p>
+						<pre><code data-trim contenteditable>
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'Chairos',
+    'Asambleas',
+)
+						</code></pre>
+						<p>Consola</p>
+						<pre><code data-trim contenteditable>
+$ python manage.py makemigrations
+$ python manage.py migrate
+$ python manage.py runserver
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>El administrador de DJango</h2>
+						<img src="./assets/legendary.gif">
+					</section>
+					<section>
+						<p>Chairos/admin.py</p>
+						<pre><code data-trim contenteditable>
+from django.contrib import admin
+from .models import Chairo
+
+admin.site.register(Chairo)
+						</code></pre>
+						<p>Asambleas/admin.py</p>
+						<pre><code data-trim contenteditable>
+from django.contrib import admin
+from .models import Asamblea
+
+admin.site.register(Asamblea)
+						</code></pre>
+					</section>
+					<section>
+						<a href="localhost:8000/admin">Django admin *.*</a>
+						<img src="./assets/admin.png">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Vistas</h2>
+						<img src="./assets/ok.gif">
+					</section>
+					<section>
+						<p>Asambleas/views.py</p>
+						<pre><code data-trim contenteditable>
+from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Asamblea
+
+class AsambleasListView(ListView):
+	model = Asamblea
+	context_object_name = 'asamblea'
+	template_name = 'asamblea.html'
+						</code></pre>
+						<p>chairosaes/urls.py</p>
+						<pre><code data-trim contenteditable>
+from Asambleas.views import AsambleasListView
+
+
+    url(r'^asambleas/', AsambleasListView.as_view()),
+						</code></pre>
+					</section>
+					<section>
+						<p>Asambleas/templates/asamblea.html</p>
+						<img src="./assets/template.png">
+					</section>
+				</section>
+				<section>
+					<h2>Listos para triunfar?</h2>
+					<img src="./assets/djangomagic.png">
+				</section>
+				<section>
+					<h2>Be awesome!!!</h2>
+					<img src="./assets/selfive.gif">
+				</section>
 
 			</div>
 
